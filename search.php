@@ -5,7 +5,7 @@ if (isset($_GET['query'])) {
     $search = htmlspecialchars($_GET['query']);
 
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=$dbname", "root", "");
+        $pdo = new PDO("mysql:host=localhost;dbname=$dbname", $dbusername, $dbpassword);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         die("Error connexion : " . $e->getMessage());

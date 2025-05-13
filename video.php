@@ -59,7 +59,6 @@ try {
             <div class="details-container">
                 <div class="details-left">
                     <p>
-                        <strong>Upload Date :</strong> <?= htmlspecialchars($product['upload_date']); ?><br>
                         <strong>Price :</strong> <?= htmlspecialchars($product['price']); ?> €
                     </p>
                 </div>

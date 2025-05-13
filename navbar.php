@@ -28,10 +28,10 @@
 
         <div class="navbar-right">
             <?php if (!isset($_SESSION['username'])): ?>
-                <a href="welcome.php" class="cart-link">
+                <a href="index.php" class="cart-link">
                     <img src="Assets/home_icon.png" alt="welcome" class="cart-icon" title="Welcome">
                 </a>
-                <a href="index.php" class="cart-link">
+                <a href="store.php" class="cart-link">
                     <img src="Assets/merch_icon.png" alt="merch" class="cart-icon" title="Merch">
                 </a>
                 <a href="connection.php" class="cart-link">
@@ -41,10 +41,10 @@
                     <img src="Assets/signup_icon.png" alt="inscription" class="cart-icon" title="Inscription">
                 </a>
             <?php else: ?>
-                <a href="welcome.php" class="cart-link">
+                <a href="index.php" class="cart-link">
                     <img src="Assets/home_icon.png" alt="welcome" class="cart-icon" title="Welcome">
                 </a>
-                <a href="index.php" class="cart-link">
+                <a href="store.php" class="cart-link">
                     <img src="Assets/merch_icon.png" alt="merch" class="cart-icon" title="Merch">
                 </a>
                 <a href="account.php" class="cart-link">
