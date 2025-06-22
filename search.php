@@ -30,13 +30,21 @@ if (isset($_GET['query'])) {
 </head>
 <body>
     <?php include 'navbar.php'; ?>
-    <br><br><br><br>
+
     <img src="Assets/bg-products.jpg" alt="Background image" class="bg-image">
+
+    <a href="index.php" class="back-button">← Back</a>
+
     <h1>Results for "<?= htmlspecialchars($search) ?>"</h1>
     <div class="product-list"> 
         <?php if (!empty($results)): ?>
             <?php foreach ($results as $product): ?>
                 <div class="product-item">
+                    <h2>
+                        <a href="video.php?id=<?= htmlspecialchars($product['id']); ?>">
+                            <?= htmlspecialchars($product['name']); ?>
+                        </a>
+                    </h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="<?= htmlspecialchars($product['image']); ?>" alt="<?= htmlspecialchars($product['name']); ?>"></div>
@@ -45,12 +53,6 @@ if (isset($_GET['query'])) {
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
-                    
-                    <h2>
-                        <a href="video.php?id=<?= htmlspecialchars($product['id']); ?>">
-                            <?= htmlspecialchars($product['name']); ?>
-                        </a>
-                    </h2>
                     <div class="image-details">
                     <p>Price : €<?= htmlspecialchars($product['price']) ?></p>
                     <form method="post" action="add_to_cart.php">

@@ -720,3 +720,43 @@ button.swiper-pagination-bullet{
     backface-visibility:hidden;
     overflow:hidden
 }
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important; /* assure blanc même si surcharge */
+    opacity: 1 !important;   /* visible en permanence */
+    pointer-events: auto !important; /* clic toujours actif */
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    color: black !important;
+}
+
+.swiper-button-next.swiper-button-disabled, 
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-hidden,
+.swiper-button-prev.swiper-button-hidden,
+.swiper-navigation-disabled .swiper-button-next,
+.swiper-navigation-disabled .swiper-button-prev {
+    opacity: 1 !important; 
+    pointer-events: auto !important;
+    display: flex !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    color: white !important;
+}

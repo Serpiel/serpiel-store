@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Inscription page</title>
     <link rel="stylesheet" href="style/sign.css">
 </head>
@@ -82,7 +82,7 @@
                 $stmt->bindParam(':password', $hashedpassword);
 
                 if ($stmt->execute()) {
-                    header("Location: welcome.php");
+                    header("Location: index.php");
                     exit();
                 } else {
                     echo "<p style='color: green'>Registration successful!</p>";

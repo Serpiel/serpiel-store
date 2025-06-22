@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
-                echo "<p style='color: green;' Login successful! </p";
-                header("Location: welcome.php");
+                echo "<p style='color: green;'> Login successful! </p>";
+                header("Location: index.php");
                 exit();
             } else {
                 echo "<p style='color: red'>Invalid password.</p>";
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Connection page</title>
     <link rel="stylesheet" href="style/sign.css">
 </head>

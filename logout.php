@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>You were disconnected</h1>
-    <form method="post" action="welcome.php" <?php session_destroy() ?>>
+    <form method="post" action="index.php" <?php session_destroy() ?>>
         <button type="submit" name="return-site">Back to the store</button>
     </form>
 </body>

@@ -1,4 +1,5 @@
-.navbar {
+/* ----- NAVBAR GLOBALE ----- */
+.navbar { 
     position: fixed;
     top: 0;
     left: 0;
@@ -8,77 +9,93 @@
     background-color: black;
     padding: 5px 20px;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
+/* Décale le contenu principal vers le bas pour éviter d’être caché par la navbar */
 body {
-    margin-top: 50px;
-    }
+    margin-top: 60px;
+}
 
-    .search-bar {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        left: 80px; /* Ajuste cette valeur selon la taille de ton logo */
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
-    .search-bar input {
-        width: 180px;
-        padding: 8px 12px;
-        border: 2px solid #fff;
-        background-color: black;
-        color: white;
-        font-size: 14px;
-        outline: none;
-        transition: width 0.3s ease-in-out, background-color 0.3s;
-    }
-    
-    .search-bar input::placeholder {
-        color: #bbb;
-    }
-    
-    .search-bar input:focus {
-        width: 230px;
-        background-color: #5b0202;
-    }
-    
-    .search-bar button {
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-    }
-    
-    .search-bar button:hover {
-        transform: scale(1.1);
-    }
-    
-    .search-icon {
-        height: 25px;
-        filter: invert(1);
-        transition: filter 0.3s ease-in-out;
-    }
-    
-    .search-bar button:hover .search-icon {
-        filter: invert(0.7);
-    }
-    
+/* ----- BARRE DE RECHERCHE ----- */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 180px;
+    padding: 8px 12px;
+    border: 2px solid #fff;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: width 0.3s ease-in-out, background-color 0.3s;
+}
+
+.search-bar input::placeholder {
+    color: #bbb;
+}
+
+.search-bar input:focus {
+    width: 230px;
+    background-color: #5b0202;
+}
+
+.search-bar button {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.search-bar button:hover {
+    transform: scale(1.1);
+}
+
+.search-icon {
+    height: 25px;
+    filter: invert(1);
+    transition: filter 0.3s ease-in-out;
+}
+
+.search-bar button:hover .search-icon {
+    filter: invert(0.7);
+}
+
+/* ----- LOGO & NAVIGATION ----- */
 .logo {
     height: 60px;
 }
+
 .navbar-right a {
     color: white;
     text-decoration: none;
     padding: 5px 20px;
     font-family: Arial, sans-serif;
 }
+
 .navbar-right a:hover {
     background-color: #555;
     border-radius: 5px;
 }
+
 .cart-link {
     display: inline-block;
     padding: 5px;
 }
+
 .cart-link img {
     height: 30px;
     width: 60px;
@@ -91,7 +108,7 @@ body {
     transform: scale(1.5);
 }
 
-
+/* ----- FOOTER ----- */
 .footer {
     position: fixed;
     bottom: 0;
@@ -104,12 +121,61 @@ body {
     font-family: Arial, sans-serif;
     z-index: 1000;
 }
+
 .footer a {
     color: white;
     text-decoration: none;
     padding: 0 10px;
 }
+
 .footer a:hover {
     text-decoration: underline;
 }
 
+/* ----- RESPONSIVE DESIGN POUR ÉCRANS < 768px ----- */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar-left,
+    .navbar-right,
+    .search-bar {
+        position: static !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 5px;
+    }
+
+    .search-bar form {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .search-bar input {
+        width: 140px;
+        font-size: 12px;
+    }
+
+    .search-icon {
+        height: 20px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .cart-link img {
+        width: 40px;
+        height: 25px;
+    }
+
+    .footer {
+        font-size: 12px;
+        padding: 5px;
+        position: static; /* Pour qu’il ne bloque pas la page sur mobile */
+    }
+}

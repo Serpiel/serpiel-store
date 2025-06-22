@@ -16,9 +16,14 @@ body {
     z-index: -1;
 }
 
+
+.product-item h2 {
+    text-align: center;
+}
+
 .swiper-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     height: auto;
     margin: 20px auto;
     position: relative;

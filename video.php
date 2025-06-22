@@ -38,7 +38,7 @@ try {
     <?php include 'navbar.php'; ?>
     <img src="Assets/bg-products.jpg" alt="Background image" class="bg-image">
 
-    <a href="index.php" class="back-button">← Back</a>
+    <a href="store.php" class="back-button">← Back</a>
 
     <div class="container">
         <div class="image-details">

@@ -14,17 +14,17 @@
         }
     ?>
     <div class="navbar">
-        <div class="search-bar">
-            <form action="search.php" method="get" style="display: flex; align-items: center;">
-                <input type="text" name="query" placeholder="Search a product..." required>
-                <button type="submit" style="background: none; border: none; padding: 0; margin-left: 5px;">
-                    <img src="Assets/loupe_icon.gif" alt="Search" class="search-icon">
-                </button>
-            </form> 
-        </div>
         <div class="navbar-left">
-            <a href ="welcome.php" ><img src="Assets/SERPIEL_logo.png" alt="SERPIEL_logo" class="logo"></a>
-        </div>
+    <a href="index.php"><img src="Assets/SERPIEL_logo.png" alt="SERPIEL_logo" class="logo"></a>
+    <div class="search-bar">
+        <form action="search.php" method="get">
+            <input type="text" name="query" placeholder="Search a product..." required>
+            <button type="submit">
+                <img src="Assets/loupe_icon.gif" alt="Search" class="search-icon">
+            </button>
+        </form> 
+    </div>
+</div>
 
         <div class="navbar-right">
             <?php if (!isset($_SESSION['username'])): ?>

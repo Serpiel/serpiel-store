@@ -15,11 +15,9 @@ try {
     if (isset($_GET['table'])) {
         $table = $_GET['table'];
 
-        
-        $stmt = $conn->query("SHOW COLUMNS FROM $table");
+        $stmt = $conn->query("SHOW COLUMNS FROM `$table`");
         $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        
         $filteredColumns = [];
         foreach ($columns as $column) {
             if (strpos($column['Extra'], 'auto_increment') === false) {
@@ -34,17 +32,40 @@ try {
 
             foreach ($filteredColumns as $column) {
                 $columnName = $column['Field'];
-                $columnType = $column['Type'];
 
-                
+                // Mot de passe
                 if (strpos($columnName, 'password') !== false) {
-                    
                     $params[":$columnName"] = password_hash($_POST[$columnName], PASSWORD_DEFAULT);
-                } else {
+                }
+
+                // Upload image depuis le PC (stockage en chemin de fichier, pas BLOB)
+                elseif (
+                    isset($_FILES[$columnName]) &&
+                    $_FILES[$columnName]['error'] === UPLOAD_ERR_OK &&
+                    is_uploaded_file($_FILES[$columnName]['tmp_name'])
+                ) {
+                    $uploadDir = 'uploads/';
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0755, true); // Crée le dossier si manquant
+                    }
+
+                    $fileExt = pathinfo($_FILES[$columnName]['name'], PATHINFO_EXTENSION);
+                    $fileName = uniqid() . '.' . $fileExt;
+                    $targetPath = $uploadDir . $fileName;
+
+                    if (move_uploaded_file($_FILES[$columnName]['tmp_name'], $targetPath)) {
+                        $params[":$columnName"] = $targetPath; // ⬅️ Stocke le chemin
+                    } else {
+                        $params[":$columnName"] = null;
+                    }
+                }
+
+                // Autres champs
+                else {
                     $params[":$columnName"] = $_POST[$columnName] ?? null;
                 }
 
-                $values[] = "`$columnName`"; 
+                $values[] = "`$columnName`";
                 $placeholders[] = ":$columnName";
             }
 
@@ -77,22 +98,25 @@ try {
 <body>
     <h2>Add a new entry in the table "<?php echo htmlspecialchars($table); ?>"</h2>
     <?php if (!empty($filteredColumns)): ?>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <?php foreach ($filteredColumns as $column): ?>
                 <label for="<?php echo $column['Field']; ?>"><?php echo $column['Field']; ?></label>
                 <?php 
                     $type = $column['Type'];
-                    
-                    if (strpos($type, 'int') !== false) {
-                        echo '<input type="number" name="' . $column['Field'] . '" id="' . $column['Field'] . '" required>';
+                    $name = $column['Field'];
+
+                    if (strpos($name, 'image') !== false) {
+                        echo '<input type="file" name="' . $name . '" id="' . $name . '" accept="image/*" required>';
+                    } elseif (strpos($type, 'int') !== false) {
+                        echo '<input type="number" name="' . $name . '" id="' . $name . '" required>';
                     } elseif (strpos($type, 'varchar') !== false || strpos($type, 'text') !== false) {
-                        echo '<input type="text" name="' . $column['Field'] . '" id="' . $column['Field'] . '" required>';
+                        echo '<input type="text" name="' . $name . '" id="' . $name . '" required>';
                     } elseif (strpos($type, 'date') !== false) {
-                        echo '<input type="date" name="' . $column['Field'] . '" id="' . $column['Field'] . '" required>';
-                    } elseif (strpos($type, 'password') !== false) {
-                        echo '<input type="password" name="' . $column['Field'] . '" id="' . $column['Field'] . '" required>';
+                        echo '<input type="date" name="' . $name . '" id="' . $name . '" required>';
+                    } elseif (strpos($name, 'password') !== false) {
+                        echo '<input type="password" name="' . $name . '" id="' . $name . '" required>';
                     } else {
-                        echo '<input type="text" name="' . $column['Field'] . '" id="' . $column['Field'] . '" required>';
+                        echo '<input type="text" name="' . $name . '" id="' . $name . '" required>';
                     }
                 ?>
                 <br>

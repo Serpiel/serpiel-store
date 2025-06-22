@@ -32,7 +32,7 @@ try {
 </head>
 <body>
     <h1>Welcome, Emperor</h1>
-    <a href="welcome.php"><button class="product-see-cart" type="submit">Return to website</button></a>
+    <a href="index.php"><button class="product-see-cart" type="submit">Return to website</button></a>
     <h2>List of the tables of "<?php echo htmlspecialchars($dbname); ?>"</h2>
 
     <?php 
@@ -72,7 +72,7 @@ try {
                         if ($column === 'password') {
                             echo "<td>*****</td>"; // Masquage des mots de passe
                         } else {
-                            echo "<td>" . htmlspecialchars($data) . "</td>";
+                            echo "<td>" . htmlspecialchars($data ?? '') . "</td>";
                         }
                     }
 
@@ -83,6 +83,7 @@ try {
                     echo "</td>";
                     echo "</tr>";
                 }
+                
                 echo "</table>";
             } else {
                 echo "<p>No data available in this table : $tableName.</p>";
