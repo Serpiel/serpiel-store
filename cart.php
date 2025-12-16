@@ -124,11 +124,11 @@ if (isset($_POST['remove_item'])) {
                 </form>
             </div>
         <?php else: ?>
-            <p>Your cart is empty.</p>
+            <p class="cart-message">Your cart is empty.</p>
         <?php endif; ?>
 
         <div class="return-link">
-            <a href="index.php">Return to the catalog</a>
+            <a href="store.php">Return to the catalog</a>
         </div>
     </div>
 

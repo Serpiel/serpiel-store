@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="InputBox">
-                <input type="submit" value="Submit">
+                <input type="submit" value="SUBMIT">
                 </div>
 
             </form>

@@ -61,6 +61,9 @@ try {
                     <p>
                         <strong>Price :</strong> <?= htmlspecialchars($product['price']); ?> €
                     </p>
+                    <p>
+                        <strong>From: </strong> <?= htmlspecialchars($product['manufacturing_production']); ?> 
+                    </p>
                 </div>
             </div>
             <div class="details-right">

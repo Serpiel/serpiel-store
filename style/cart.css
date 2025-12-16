@@ -163,7 +163,7 @@ button:hover {
     }
 }
 
-p {
+.cart-message {
     text-align: center;
     color: #860808;
 }

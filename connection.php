@@ -64,12 +64,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="InputBox">
-                <input type="submit" value="Log In">
+                <input type="submit" value="LOG   IN">
                 </div>
                 
             </form>
         </div>
         <p>Not registered ? <a href="inscription.php" class="register-link">Register here</a></p>
+        <p>Forgot Password ? </p>
+        <form method="POST" action="reset_password_request.php">
+            <div class="InputBox">
+                <input type="email" name="email" required>
+                <i>Email</i>
+            </div>
+
+            <div class="InputBox">
+                <input type="submit" value="REINITIALIZE   PASSWORD">
+            </div>
+        </form>
     </div>
     <?php include 'footer.php'; ?>
 </body>
