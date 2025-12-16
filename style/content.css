@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
     margin: 0;
     padding: 0;
@@ -48,3 +49,17 @@ body {
 }
 
 
+=======
+body {
+    background: #636363;
+}
+
+main {
+    margin-top: 200px;
+}
+h2 {
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+}
+>>>>>>> 2fca341a50f4c42f33410b1d0aa0c44a74c8e042

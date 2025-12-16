@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     color: #eaeaea;
     font-family: Arial, sans-serif;
@@ -133,4 +134,153 @@ button:hover {
 .product-see-cart {
     color: white;
     margin: 20px;
+=======
+/* Styles généraux */
+body {
+    color: #eaeaea; /* Texte clair */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+.bg-image {
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Titre */
+h1 {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Conteneur de la liste de produits */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grille fluide */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Conteneur des produits */
+.product-item {
+    margin: 20px;
+    background-color: #333; /* Fond sombre pour chaque produit */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Animation au survol */
+    text-align: center;
+    padding-bottom: 20px; /* Espace pour le bouton */
+}
+
+.product-item:hover {
+    transform: scale(1.05); /* Agrandissement léger au survol */
+}
+
+/* Conteneur de l'image et de la vidéo */
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image visible par défaut */
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Vidéo cachée par défaut */
+.product-image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Effet au survol : l'image disparaît et la vidéo apparaît */
+.product-item:hover .product-image {
+    opacity: 0;
+}
+
+.product-item:hover .product-image2 {
+    opacity: 1;
+}
+
+/* Infos du produit */
+.product-info {
+    padding: 15px;
+    color: #fff;
+}
+
+/* Titre du produit */
+h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+h2 {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.product-image-container:hover + h2 {
+    color: #000000; 
+}
+
+/* Prix */
+.product-price {
+    font-size: 16px;
+    color: #eaeaea;
+    margin-bottom: 10px;
+}
+
+/* Bouton Ajouter au panier */
+button {
+    background-color: #838381; /* Couleur orange */
+    margin: 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    transition: transform 0.5s ease-in-out;
+}
+
+button:hover {
+    background-color: #860808;
+    transform: scale(1.2);
+}
+
+.product-see-cart {
+    color: white;
+    margin: 20px;
+>>>>>>> 2fca341a50f4c42f33410b1d0aa0c44a74c8e042
 }
