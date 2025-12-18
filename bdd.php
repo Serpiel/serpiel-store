@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 // Local Version (Wamp)
@@ -22,12 +21,3 @@ try {
 }
 
 ?>
-=======
-<?php
-$servername = "localhost";
-$dbname = "bdd_serpiel";
-$dbusername = "root";
-$dbpassword = "";
-?>
-
->>>>>>> 2fca341a50f4c42f33410b1d0aa0c44a74c8e042

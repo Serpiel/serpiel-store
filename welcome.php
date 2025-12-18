@@ -1,4 +1,3 @@
-
 <?php include 'bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
