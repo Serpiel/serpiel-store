@@ -20,7 +20,6 @@ body {
     display: none;
 }
 
-/* Appliquer aux deux vidéos */
 #video-desktop,
 #video-mobile {
     position: fixed;
@@ -47,4 +46,7 @@ body {
     }
 }
 
-
+/* for the about-me page */
+.about-presentation {
+    text-align: center;
+}

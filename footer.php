@@ -11,6 +11,7 @@
         <p>
             <a class="conditions" href="privacy.php">Privacy policy</a>
             <a class="conditions" href="terms.php">Conditions of use</a>
+            <a class="conditions" href="about.php">About me</a>
         </p>
     </div>
 </body>

@@ -176,7 +176,7 @@ body {
     .footer {
         font-size: 12px;
         padding: 5px;
-        position: static; /* Pour qu’il ne bloque pas la page sur mobile */
+        position: static; 
     }
 }
 
